@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Counter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="main">
+    Live viewers now:&nbsp;<span id="viewers-count"></span>
+</div>
+
+<script type="text/javascript">
+    let source = new EventSource('/events/');
+
+    source.onmessage = function(event) {
+        let viewers = document.getElementById('viewers-count');
+        viewers.textContent = event.data;
+    };
+</script>
+</body>
+</html>
