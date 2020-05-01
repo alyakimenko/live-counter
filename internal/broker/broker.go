@@ -7,8 +7,8 @@ import (
 	"strconv"
 )
 
-// Broker handle connected clients and sends updates
-// to each of them when client is connected or disconnected
+// Broker handles connected clients and sends updates
+// to each of them when receives a new connection or disconnection
 type Broker struct {
 	clients       map[chan string]bool
 	newClients    chan chan string
